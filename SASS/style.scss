@@ -5,39 +5,124 @@ $color-primary: #505050;
 $color-secondary: #E2E2E2;
 $main-font: ;
 
-body, html {
-    font-family: 'Montserrat', Arial, sans-serif;
-    font-size: 16px;
-    font-weight: normal;
-    line-height: 1.4;
-    height: 100%;
-    background-color: $bg-color;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-.mainheader{
+/*  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 1.4;
+*/
+/*
+.bg1{
   background-image: url("img/headerbackground2.jpg");
-  height: 55%;
+  height: 200px;
   background-repeat: no-repeat;
   background-position: 50% 75%;
   background-size: cover;
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
   width: 100%;
+  }
+
+
+
+div.hidden {
+  display:none;
 }
+*/
+
+body,html{margin:0;padding:0;}
 
 .logo{
-  height: 88%;
+  height: 40vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: auto;
-  padding-top: 70px;
+  padding-top: 30px;
 }
 
 div.hidden {
   display:none;
+}
+
+.wrapper {
+  /* The height needs to be set to a fixed value for the effect to work.
+   * 100vh is the full height of the viewport. */
+  height: 100vh;
+  /* The scaling of the images would add a horizontal scrollbar, so disable x overflow. */
+  overflow-x: hidden;
+  /* Enable scrolling on the page. */
+  overflow-y: auto;
+  /* Set the perspective to 2px. This is essentailly the simulated distance from the viewport to transformed objects.*/
+  perspective: 2px;
+}
+
+.section {
+  /* Needed for children to be absolutely positioned relative to the parent. */
+  position: relative;
+  /* The height of the container. Must be set, but it doesn't really matter what the value is. */
+  height: 70vh;
+
+  /* For text formatting. */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-shadow: 0 0 5px #000;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  background-repeat: no-repeat;
+}
+
+.top{
+  margin-top: -10vh;
+  height: 80vh
+}
+
+.parallax::after {
+  /* Display and position the pseudo-element */
+  content: " ";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  /* Move the pseudo-element back away from the camera,
+   * then scale it back up to fill the viewport.
+   * Because the pseudo-element is further away, it appears to move more slowly, like in real life. */
+  transform: translateZ(-1px) scale(1.5);
+  /* Force the background image to fill the whole element. */
+  background-size: 100%;
+  /* Keep the image from overlapping sibling elements. */
+  z-index: -1;
+}
+
+/* The styling for the static div. */
+.static {
+  background: white;
+  height: 350px;
+}
+
+/* Sets the actual background images to adorable kitties. This part is crucial. */
+.bg1::after {
+  background-image: url("img/headerbackground1.jpg");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+.bg2::after {
+  background-image: url("img/headerbackground2.jpg");
+  background-repeat: no-repeat;
+  background-position: 80%;
+}
+
+.bg3::after {
+  background-image: url("img/headerbackground5.jpg");
+  background-repeat: no-repeat;
+  background-position: 50% 100%;
+}
+
+.bg4::after {
+  background-image: url("img/headerbackground4.jpg");
+  background-repeat: no-repeat;
+  background-position: 50% 100%;
 }
