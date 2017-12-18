@@ -5,38 +5,28 @@ $color-primary: #505050;
 $color-secondary: #E2E2E2;
 $main-font: ;
 
-/*  font-family: 'Montserrat', Arial, sans-serif;
-  font-size: 16px;
-  font-weight: normal;
-  line-height: 1.4;
-*/
-/*
-.bg1{
-  background-image: url("img/headerbackground2.jpg");
-  height: 200px;
-  background-repeat: no-repeat;
-  background-position: 50% 75%;
-  background-size: cover;
-  text-align: center;
-  width: 100%;
-  }
-
-
-
-div.hidden {
-  display:none;
+::-webkit-scrollbar {
+    display: none;
 }
-*/
 
-body,html{margin:0;padding:0;}
+body,html{
+  margin:0;padding:0;
+  overflow: hidden;
+  font-family: 'Barlow', 'Montserrat', Arial, sans-serif;
+  h1{
+    font-size: 4em;
+    font-weight: normal;
+    color: black;
+  }
+}
 
 .logo{
-  height: 40vh;
+  height: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: auto;
-  padding-top: 30px;
+  padding-top: 10%
 }
 
 div.hidden {
@@ -59,14 +49,14 @@ div.hidden {
   /* Needed for children to be absolutely positioned relative to the parent. */
   position: relative;
   /* The height of the container. Must be set, but it doesn't really matter what the value is. */
-  height: 70vh;
-
+  height: 80vh;
+  margin: auto;
+  width: 100%;
   /* For text formatting. */
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  text-shadow: 0 0 5px #000;
   overflow-y: hidden;
   overflow-x: hidden;
   background-repeat: no-repeat;
@@ -99,7 +89,7 @@ div.hidden {
 /* The styling for the static div. */
 .static {
   background: white;
-  height: 350px;
+  height: 320px;
 }
 
 /* Sets the actual background images to adorable kitties. This part is crucial. */
@@ -116,13 +106,13 @@ div.hidden {
 }
 
 .bg3::after {
-  background-image: url("img/headerbackground5.jpg");
+  background-image: url("img/headerbackground4.jpg");
   background-repeat: no-repeat;
   background-position: 50% 100%;
 }
 
 .bg4::after {
-  background-image: url("img/headerbackground4.jpg");
+  background-image: url("img/headerbackground5.jpg");
   background-repeat: no-repeat;
   background-position: 50% 100%;
 }
