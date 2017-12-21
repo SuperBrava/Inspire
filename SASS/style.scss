@@ -9,9 +9,14 @@ $main-font: ;
     display: none;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body,html{
   margin:0;padding:0;
   overflow: hidden;
+  width: 100%;
   font-family: 'Barlow', 'Montserrat', Arial, sans-serif;
   h1{
     font-size: 4em;
@@ -23,7 +28,7 @@ body,html{
 }
 
 .logo{
-  height: 80%;
+  height: 40vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -49,6 +54,7 @@ body,html{
   align-items: center;
   }
 
+
 div.hidden {
   display:none;
 }
@@ -62,7 +68,7 @@ div.hidden {
   /* Enable scrolling on the page. */
   overflow-y: auto;
   /* Set the perspective to 2px. This is essentailly the simulated distance from the viewport to transformed objects.*/
-  perspective: 3px;
+  perspective: 2px;
 }
 
 .section {
@@ -85,6 +91,7 @@ div.hidden {
 .top{
   margin-top: -10vh;
   height: 85vh
+  width:100%;
 }
 
 .parallax::after {
@@ -109,10 +116,49 @@ div.hidden {
 /* The styling for the static div. */
 .static {
   background: white;
-  height: 280px;
+  height: 260px;
 }
+
 .break{
-  height: 70px;
+  height: 60px;
+}
+
+.footer{
+   height: 350px;
+   width: 65%;
+   margin: auto;
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   grid-template-rows: 110px 180px;
+   justify-content: center;
+   color: black;
+   h1{
+     font-size: 3.2em;
+     line-height: 0.5em;
+   }
+}
+
+.contact-header{
+   grid-column-start: 1;
+   grid-column-end: 3;
+   text-decoration: underline;
+ }
+
+.contact-details{
+   font-size: 2.2em;
+   grid-row: 2;
+   text-align: left;
+}
+
+.icons{
+   grid-row: 2;
+   margin: auto;
+   display: inline-flex;
+   list-style-type: none;
+        .icon{
+        height: 100%;
+        padding: 15px;
+      }
 }
 
 /* Sets the actual background images to adorable kitties. This part is crucial. */
@@ -149,5 +195,5 @@ div.hidden {
 .bg6::after {
   background-image: url("img/background6.jpeg");
   background-repeat: no-repeat;
-  background-position: 50% 60%;
+  background-position: 50% 90%;
 }
