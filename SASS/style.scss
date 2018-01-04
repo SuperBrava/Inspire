@@ -28,13 +28,12 @@ body,html{
 }
 
 .logo{
-  height: 40vh;
+  padding-top: 100px;
+  height: 450px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: auto;
-  padding-top: 10%;
-  padding-bottom:10%;
 }
 
 .award{
@@ -75,7 +74,7 @@ div.hidden {
   /* Needed for children to be absolutely positioned relative to the parent. */
   position: relative;
   /* The height of the container. Must be set, but it doesn't really matter what the value is. */
-  height: 75vh;
+  height: 70vh;
   margin: auto;
   width: 93.5%;
   /* For text formatting. */
@@ -84,14 +83,12 @@ div.hidden {
   justify-content: center;
   color: white;
   overflow-y: hidden;
-  overflow-x: hidden;
   background-repeat: no-repeat;
 }
 
 .top{
-  margin-top: -10vh;
-  height: 85vh
-  width:100%;
+  margin-top: -25vh;
+  height: 85vh;
 }
 
 .parallax::after {
@@ -102,15 +99,15 @@ div.hidden {
   right: 0;
   bottom: 0;
   left: 0;
-
   /* Move the pseudo-element back away from the camera,
    * then scale it back up to fill the viewport.
    * Because the pseudo-element is further away, it appears to move more slowly, like in real life. */
   transform: translateZ(-1px) scale(1.5);
   /* Force the background image to fill the whole element. */
-  background-size: 100%;
+  background-size: 90%;
   /* Keep the image from overlapping sibling elements. */
   z-index: -1;
+
 }
 
 /* The styling for the static div. */
@@ -163,37 +160,43 @@ div.hidden {
 
 /* Sets the actual background images to adorable kitties. This part is crucial. */
 .bg1::after {
-  background-image: url("img/background1.jpg");
+  background-image: url("img/background2.jpg");
   background-repeat: no-repeat;
   background-position: center;
+  background-size: cover;
 }
 
 .bg2::after {
-  background-image: url("img/background2.jpg");
+  background-image: url("img/background1.jpg");
   background-repeat: no-repeat;
   background-position: 50% 100%;
+  background-size: cover;
 }
 
 .bg3::after {
   background-image: url("img/background3.jpg");
   background-repeat: no-repeat;
   background-position: 50% 45%;
+  background-size: cover;
 }
 
 .bg4::after {
   background-image: url("img/background4.jpg");
   background-repeat: no-repeat;
   background-position: 0% 50%;
+  background-size: cover;
 }
 
 .bg5::after {
   background-image: url("img/background5.jpg");
   background-repeat: no-repeat;
   background-position: center;
+  background-size: cover;
 }
 
 .bg6::after {
   background-image: url("img/background6.jpeg");
   background-repeat: no-repeat;
   background-position: 50% 90%;
+  background-size: cover;
 }
