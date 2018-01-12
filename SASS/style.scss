@@ -3,19 +3,9 @@
 $bg-color: #f2f2f2;
 $color-primary: #505050;
 $color-secondary: #E2E2E2;
-$main-font: ;
 
-
-::-moz-scrollbar{
-  display: none;
-}
-
-::-webkit-scrollbar {
+::-webkit-scrollbar, ::-moz-scrollbar {
     display: none;
-}
-
-* {
-    box-sizing: border-box;
 }
 
 body,html{
@@ -24,7 +14,9 @@ body,html{
   width: 100%;
   font-family: 'Barlow', 'Montserrat', Arial, sans-serif;
   h1{
-    font-size: 4em;
+    font-size: calc(30px + (50 - 30) * ((100vw - 300px) / (1600 - 300)));
+  /* font-size: calc([minimum size] + ([maximum size] - [minimum size]) *
+  ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));*/
     font-weight: normal;
     color: black;
     letter-spacing: 0.055em;
@@ -54,10 +46,12 @@ body,html{
   height: 50px;
 }
 
+/* Main-landing area ----*/
 .logo{
   padding-top: 100px;
   padding-left: 20px;
-  height: 450px;
+  max-height: 400px;
+  max-width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -82,30 +76,29 @@ body,html{
   }
 
 
-div.hidden {
+div.hidden {  /* Used in jQuery logo/icon fadeIn*/
   display:none;
 }
 
+/* Parallax Features ----------- */
 .wrapper {
-  /* The height needs to be set to a fixed value for the effect to work.
-   * 100vh is the full height of the viewport. */
-  height: 100vh;
+  /* This div acts as the viewer's screen (100vh) allowing underlying div's to move underneath*/
+    height: 100vh;
   /* The scaling of the images would add a horizontal scrollbar, so disable x overflow. */
   overflow-x: hidden;
   /* Enable scrolling on the page. */
   overflow-y: auto;
-    /* Set the perspective to 2px. This is essentailly the simulated distance from the viewport to transformed objects.*/
+    /* The perspective defines the rate of movement of parallax images.*/
   perspective: 2px;
 }
 
 .section {
-  /* Needed for children to be absolutely positioned relative to the parent. */
+  /* children to the .wrapper div allowing each section to be relativew to the parent */
   position: relative;
-  /* The height of the container. Must be set, but it doesn't really matter what the value is. */
-  height: 70vh;
+  /* The height of the container.*/
+  height: 60vh;
   margin: auto;
   width: 93.5%;
-  /* For text formatting. */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -113,11 +106,6 @@ div.hidden {
   overflow-x: hidden;
   overflow-y: hidden;
   background-repeat: no-repeat;
-}
-
-.top{
-  margin-top: -25vh;
-  height: 80vh;
 }
 
 .parallax::after {
@@ -128,68 +116,69 @@ div.hidden {
   right: 0;
   bottom: 0;
   left: 0;
+  background-size: 90%;
+  /* personal choice - can be 100%, must be high for parallax to occur*/
+
+  transform: translateZ(-1px) scale(1.5);
   /* Move the pseudo-element back away from the camera,
    * then scale it back up to fill the viewport.
    * Because the pseudo-element is further away, it appears to move more slowly, like in real life. */
-  transform: translateZ(-1px) scale(1.5);
-  /* Force the background image to fill the whole element. */
-  background-size: 90%;
-  /* Keep the image from overlapping sibling elements. */
+
   z-index: -1;
-
   overflow-x: hidden;
-
+  /* Keep the image from overlapping sibling elements. */
 }
 
 /* The styling for the static div. */
 .static {
   background: white;
-  height: 260px;
+  height: 130px;
 }
 
-.break{
-  height: 75px;
+.top{ /* Primary landing banner (requires a smaller height than the other .section children without offsetting the image dimensions)*/
+  margin-top: -25vh;
+  height: 80vh;
+}
+
+.break{ /* short breaker underneath the landing banner */
+  height: 80px;
 }
 
 .footer{
-   height: 350px;
-   width: 65%;
-   margin: auto;
-   display: grid;
-   grid-template-columns: 1fr 1fr;
-   grid-template-rows: 110px 180px;
-   justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  width:500px;
+   height: 200px;
+   width: 90%;
+   margin: 0 auto 80px;
    color: black;
-   h1{
-     font-size: 3.2em;
-     line-height: 0.5em;
-   }
 }
 
 .contact-header{
-   grid-column-start: 1;
-   grid-column-end: 3;
+   font-size: 3.2em;
+   line-height: 0.5em;
    text-decoration: underline;
+   padding-top: 30px;
  }
 
 .contact-details{
-   font-size: 2.2em;
-   grid-row: 2;
-   text-align: left;
+  font-size: calc(20px + (35 - 20) * ((100vw - 300px) / (1600 - 300)));
+/* font-size: calc([minimum size] + ([maximum size] - [minimum size]) *
+((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));*/
+   text-align: center;
+   margin: 0 30px;
 }
 
 .icons{
-   grid-row: 2;
-   margin: auto;
    display: inline-flex;
    list-style-type: none;
         .icon{
-        height: 100%;
-        padding: 15px;
-      }
+        width: 90px;
+        margin: 0 10px;
+ }
 }
 
-/* Sets the actual background images to adorable kitties. This part is crucial. */
+/* background images */
 .bg1::after {
   background-image: url("img/background2.jpg");
   background-repeat: no-repeat;
